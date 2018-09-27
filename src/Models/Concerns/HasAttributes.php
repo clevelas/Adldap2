@@ -62,6 +62,18 @@ trait HasAttributes
     }
 
     /**
+     * Allow isset() calls for unknown variables
+     * 
+     * @param mixed $key
+     * @return bool
+     */
+    public function __isset($key)
+    {
+        $attr = $this->getAttribute($key);
+        return isset($attr);
+    }
+
+    /**
      * Synchronizes the models original attributes
      * with the model's current attributes.
      *
